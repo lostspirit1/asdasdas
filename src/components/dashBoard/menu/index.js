@@ -1,54 +1,40 @@
 import React, { useState } from 'react';
-import {  Grid, Button, Icon } from 'semantic-ui-react';
+import {  Button, Icon } from 'semantic-ui-react';
 import './style.css';
-import logo from '../../../assets/images/agua.svg';
-<<<<<<< HEAD
-import { ContainerGrid, ContainerGridColumnMenu, ContainerContent, MenuDiv, ButtonStyled, WrapButton } from './styledMenu';
-=======
-import { ContainerGrid, ContainerGridColumnMenu, ContainerContent } from './styledMenu';
->>>>>>> 2f6158484aafea1465b012ca8dad2b9b20a714ca
- 
-function Menu() {
+
+import { GridContentWrapper, GridMenuWrapper, GridWrapper } from './styles/Grid';
+import { Menu } from './styles/Menu';
+import { ButtonWrap, StyledButton, Span } from './styles/Button';
+import { IconWrap } from './styles/Icon';
+
+function DashBoardMenu() {
   const [open, setOpen] = useState(true); // declare new state variable "open" with setter
   const handleClick = e => {
     e.preventDefault();
     setOpen(!open);
   };
   return (
-    <ContainerGrid style={{background: '#eee'}}>
-<<<<<<< HEAD
+    <GridWrapper style={{background: '#eee'}}>
+    <GridMenuWrapper desktop={open ? '12.5%' : '3.5%'} mobile= {open ? '31.25%' : '12.5%'} wdscreen = { open? '80%' : '2%'} >
+    <Menu>
+    <ButtonWrap>
+    <StyledButton style={{padding:0}}>
+      <IconWrap name='facebook' size='big'/>
+      <Span status = { open ? 'inline-flex' : 'none' } > facebook </Span> 
+    </StyledButton>
+    </ButtonWrap>
+    </Menu>
 
-    {/* <ContainerGridColumn mobile={2} > */}
-    <ContainerGridColumnMenu desktop={open ? '12.5%' : '3.5%'} mobile= {open ? '31.25%' : '12.5%'} wdscreen = { open? '80%' : '2%'} >
-    <MenuDiv>
-    <WrapButton>
-
-    <ButtonStyled style={{padding:0}}>
-      <Icon name='facebook' size='big' style={{height: '1em', marginLeft:' 20px', marginRight:'10px'}} /> Facebook
-    </ButtonStyled>
-
-    </WrapButton>
-    </MenuDiv>
-    </ContainerGridColumnMenu>
-    <ContainerContent desktop={open ? '87.5%' : '96.5%'} mobile = { open ? '68.75%' : '87.5%' }>
-=======
-
-    {/* <ContainerGridColumn mobile={2} > */}
-    <ContainerGridColumnMenu status={open ? '12.5%' : '50px'} mobile= {open ? '31.25%' : '12.5%'} >
-    <div style={{background:'#000', width:'100%', height:'100%'}}>
-
-    </div>
-    </ContainerGridColumnMenu>
-    <ContainerContent desktop={open ? '87.5%' : 'calc(87.5%+50px)'} mobile = { open ? '68.75%' : '87.5%' }>
->>>>>>> 2f6158484aafea1465b012ca8dad2b9b20a714ca
+    </GridMenuWrapper>
+    <GridContentWrapper desktop={open ? '87.5%' : '96.5%'} mobile = { open ? '68.75%' : '87.5%' }>
           <Button icon onClick={handleClick}>
             <Icon name="align justify" />
           </Button>
-    </ContainerContent>
-   </ContainerGrid>
+    </GridContentWrapper>
+   </GridWrapper>
   );
 }
-
+{/* 
 // const MenuMain = () => (
 //     <>
 //      <Grid style={{background: '#eee'}}>
@@ -74,8 +60,7 @@ function Menu() {
 //         <Menu.Item> <Button className="btnMenu" content='Two' icon='volume up' />  </Menu.Item>
 //         <Menu.Item> <Button className="btnMenu" content='Three' icon='pause' />  </Menu.Item>
 //     </Menu> */}
-
-//     {/* <Container fluid style={{padding:'0 !important', background:'#000'}}>
+    {/* <Container fluid style={{padding:'0 !important', background:'#000'}}>
 
 
 //      <Grid.Column  width={14} style={{padding:'0', margin: '0', background:'#000'}}>
@@ -83,8 +68,7 @@ function Menu() {
 //          <Icon name='align justify' />
 //     </Button>
 //     </Grid.Column> 
-//     </Container> */}
-//     </>
-// )   
+//     </Container> */}   
 
-export default Menu;
+
+export default DashBoardMenu;
